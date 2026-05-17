@@ -51,6 +51,54 @@
 
       <button type="submit">Submit Booking</button>
     </form>
-  </section>
+  </section><!-- Confirmation Modal -->
+<div id="confirmationModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p id="modalMessage"></p>
+  </div>
+</div>
+
+<script>
+document.getElementById("bookingForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const phone = document.getElementById("phone").value.trim();
+  const model = document.getElementById("model").value;
+  const date = document.getElementById("date").value;
+
+  const modal = document.getElementById("confirmationModal");
+  const modalMessage = document.getElementById("modalMessage");
+  const closeBtn = document.querySelector(".close");
+
+  if (!name || !email || !phone || !model || !date) {
+    modalMessage.textContent = "Submission failed. Please ensure all required fields are completed correctly.";
+    modalMessage.style.color = "red";
+    modal.style.display = "block";
+    return;
+  }
+
+  modalMessage.textContent = "Booking successful! Expect confirmation email soon.";
+  modalMessage.style.color = "green";
+  modal.style.display = "block";
+
+  document.getElementById("bookingForm").reset();
+
+  closeBtn.onclick = function() {
+    modal.style.display = "none";
+  };
+
+  window.onclick = function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  };
+});
+</script>
+</body>
+</html>
+
 </body>
 </html>
