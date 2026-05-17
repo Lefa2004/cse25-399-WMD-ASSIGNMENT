@@ -57,6 +57,14 @@ nav ul li a:hover {
   text-align: center;
 }
 
+.hero img {
+  max-width: 600px;   /* limits the image width */
+  width: 100%;        /* makes it responsive */
+  height: auto;       /* keeps proportions */
+  border-radius: 8px; /* optional styling */
+}
+
+
 .hero h1 {
   font-size: 48px;
   margin-bottom: 20px;
