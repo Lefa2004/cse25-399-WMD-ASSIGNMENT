@@ -1,4 +1,3 @@
-/* ✅ Reset default spacing */
 * {
   margin: 0;
   padding: 0;
@@ -6,13 +5,11 @@
   font-family: Arial, sans-serif;
 }
 
-/* ✅ Body background */
 body {
-  background: #111;
+  background: #111; /* ✅ clean dark background */
   color: white;
 }
 
-/* ✅ Header */
 header {
   background: black;
   color: white;
@@ -22,13 +19,11 @@ header {
   align-items: center;
 }
 
-/* ✅ Logo */
 .logo {
   font-size: 20px;
   font-weight: bold;
 }
 
-/* ✅ Navbar */
 nav ul {
   list-style: none;
   display: flex;
@@ -43,7 +38,6 @@ nav ul li a {
   text-decoration: none;
 }
 
-/* ✅ Dropdown */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -55,15 +49,15 @@ nav ul li a {
   display: block;
 }
 
-/* ✅ BOOKING SECTION CENTERED */
+/* ✅ CENTERED BOOKING SECTION */
 .book {
   display: flex;
-  justify-content: center;   /* horizontal center */
-  align-items: center;       /* vertical center */
-  min-height: 90vh;          /* fills screen below header */
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+  background: none; /* ✅ ensures no image */
 }
 
-/* ✅ FORM CONTAINER */
 .book-container {
   width: 400px;
   padding: 25px;
@@ -73,33 +67,28 @@ nav ul li a {
   text-align: center;
 }
 
-/* ✅ Heading */
 .book-container h2 {
   margin-bottom: 15px;
 }
 
-/* ✅ Form layout */
 form {
   display: flex;
   flex-direction: column;
 }
 
-/* ✅ Labels */
 label {
   text-align: left;
   margin-top: 10px;
   font-size: 14px;
 }
 
-/* ✅ Inputs */
 input, select {
   padding: 10px;
   margin-top: 5px;
-  border: none;
   border-radius: 5px;
+  border: none;
 }
 
-/* ✅ Button */
 button {
   margin-top: 15px;
   padding: 12px;
@@ -142,4 +131,3 @@ button:hover {
   cursor: pointer;
   font-size: 20px;
 }
-``
