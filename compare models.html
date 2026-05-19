@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,21 +7,18 @@
 <title>Compare Models</title>
 
 <style>
-/* ✅ Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* ✅ Body */
 body {
   background: #111;
   color: white;
   font-family: Arial, sans-serif;
 }
 
-/* ✅ Header */
 header {
   background: black;
   padding: 15px;
@@ -31,13 +29,11 @@ header {
   font-weight: bold;
 }
 
-/* ✅ Section */
 .compare {
   padding: 40px;
   text-align: center;
 }
 
-/* ✅ Controls */
 .selectors {
   display: flex;
   justify-content: center;
@@ -46,12 +42,10 @@ header {
   margin-top: 20px;
 }
 
-/* ✅ Inputs */
 select {
   padding: 8px;
 }
 
-/* ✅ Button */
 button {
   padding: 10px 15px;
   background: silver;
@@ -64,15 +58,13 @@ button:hover {
   background: white;
 }
 
-/* ✅ Cards container */
 .cards {
-  display: none; /* hidden first */
+  display: none;
   justify-content: center;
   gap: 20px;
   margin-top: 40px;
 }
 
-/* ✅ Card */
 .card {
   background: #1c1c1c;
   padding: 20px;
@@ -99,3 +91,66 @@ button:hover {
     <select id="model1">
       <option value="sedan">Sedan</option>
       <option value="amg">AMG</option>
+      <option value="coupes">Coupes</option>
+      <option value="suv">SUV</option>
+      <option value="electric">Electric</option>
+      <option value="vans">Vans</option>
+    </select>
+
+    <label>Model 2:</label>
+    <select id="model2">
+      <option value="sedan">Sedan</option>
+      <option value="amg">AMG</option>
+      <option value="coupes">Coupes</option>
+      <option value="suv">SUV</option>
+      <option value="electric">Electric</option>
+      <option value="vans">Vans</option>
+    </select>
+
+    <!-- ✅ IMPORTANT BUTTON -->
+    <button id="compareBtn">Compare</button>
+
+  </div>
+
+  <!-- ✅ RESULT -->
+  <div id="result" class="cards"></div>
+
+</section>
+
+<script>
+document.getElementById("compareBtn").addEventListener("click", function () {
+
+  const model1 = document.getElementById("model1").value;
+  const model2 = document.getElementById("model2").value;
+
+  const cars = {
+    sedan: { name: "Sedan", engine: "2.0L", hp: "200HP" },
+    amg: { name: "AMG", engine: "4.0L", hp: "500HP" },
+    coupes: { name: "Coupes", engine: "3.0L", hp: "350HP" },
+    suv: { name: "SUV", engine: "3.0L", hp: "300HP" },
+    electric: { name: "Electric", engine: "EV", hp: "420HP" },
+    vans: { name: "Vans", engine: "2.5L", hp: "180HP" }
+  };
+
+  const result = document.getElementById("result");
+
+  result.style.display = "flex";
+
+  result.innerHTML = `
+    <div class="card">
+      <h3>${cars[model1].name}</h3>
+      <p>Engine: ${cars[model1].engine}</p>
+      <p>HP: ${cars[model1].hp}</p>
+    </div>
+
+    <div class="card">
+      <h3>${cars[model2].name}</h3>
+      <p>Engine: ${cars[model2].engine}</p>
+      <p>HP: ${cars[model2].hp}</p>
+    </div>
+  `;
+});
+</script>
+
+</body>
+</html>
