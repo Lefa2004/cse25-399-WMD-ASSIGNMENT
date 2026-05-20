@@ -4,6 +4,36 @@
   <meta charset="UTF-8">
   <title>Compare Models</title>
   <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ✅ Comparison Layout */
+    #comparison-table {
+      display: flex;
+      gap: 20px;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .car-card {
+      flex: 1;
+      border: 1px solid #ccc;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .car-card h3 {
+      margin-top: 0;
+      color: #333;
+    }
+
+    /* ✅ Responsive: stack on small screens */
+    @media (max-width: 600px) {
+      #comparison-table {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -34,7 +64,6 @@
     <h2>Compare Models</h2>
 
     <div class="selectors">
-
       <label for="model1">Select Model 1:</label>
       <select id="model1">
         <option value="sedan">Sedan</option>
@@ -58,38 +87,47 @@
       <button id="compareBtn">Compare</button>
     </div>
 
+    <!-- ✅ RESULT -->
     <div id="comparison-table"></div>
 
   </section>
 
+  <!-- ✅ SCRIPT -->
   <script>
   document.getElementById("compareBtn").addEventListener("click", function () {
-
     const model1 = document.getElementById("model1").value;
     const model2 = document.getElementById("model2").value;
 
     const cars = {
-      sedan: { name: "Sedan", engine: "2.0L", hp: "200HP" },
-      amg: { name: "AMG Performance", engine: "4.0L", hp: "500HP" },
-      coupes: { name: "Coupes", engine: "3.0L", hp: "350HP" },
-      suv: { name: "SUV", engine: "3.0L", hp: "300HP" },
-      electric: { name: "Electric", engine: "EV", hp: "420HP" },
-      vans: { name: "Vans", engine: "2.5L", hp: "180HP" }
+      sedan: { name: "Sedan", engine: "2.0L", hp: "200HP", seats: "5", fuel: "Petrol", transmission: "Automatic", price: "$30,000" },
+      amg: { name: "AMG Performance", engine: "4.0L V8", hp: "500HP", seats: "4", fuel: "Petrol", transmission: "Dual-Clutch", price: "$90,000" },
+      coupes: { name: "Coupes", engine: "3.0L", hp: "350HP", seats: "4", fuel: "Petrol", transmission: "Manual", price: "$50,000" },
+      suv: { name: "SUV", engine: "3.0L", hp: "300HP", seats: "7", fuel: "Diesel", transmission: "Automatic", price: "$60,000" },
+      electric: { name: "Electric", engine: "EV Motor", hp: "420HP", seats: "5", fuel: "Electric", transmission: "Single-Speed", price: "$70,000" },
+      vans: { name: "Vans", engine: "2.5L", hp: "180HP", seats: "8", fuel: "Diesel", transmission: "Automatic", price: "$40,000" }
     };
 
     const output = document.getElementById("comparison-table");
 
     output.innerHTML = `
-      <div>
+      <div class="car-card">
         <h3>${cars[model1].name}</h3>
-        <p>Engine: ${cars[model1].engine}</p>
-        <p>HP: ${cars[model1].hp}</p>
+        <p><strong>Engine:</strong> ${cars[model1].engine}</p>
+        <p><strong>Horsepower:</strong> ${cars[model1].hp}</p>
+        <p><strong>Seats:</strong> ${cars[model1].seats}</p>
+        <p><strong>Fuel:</strong> ${cars[model1].fuel}</p>
+        <p><strong>Transmission:</strong> ${cars[model1].transmission}</p>
+        <p><strong>Price:</strong> ${cars[model1].price}</p>
       </div>
 
-      <div>
+      <div class="car-card">
         <h3>${cars[model2].name}</h3>
-        <p>Engine: ${cars[model2].engine}</p>
-        <p>HP: ${cars[model2].hp}</p>
+        <p><strong>Engine:</strong> ${cars[model2].engine}</p>
+        <p><strong>Horsepower:</strong> ${cars[model2].hp}</p>
+        <p><strong>Seats:</strong> ${cars[model2].seats}</p>
+        <p><strong>Fuel:</strong> ${cars[model2].fuel}</p>
+        <p><strong>Transmission:</strong> ${cars[model2].transmission}</p>
+        <p><strong>Price:</strong> ${cars[model2].price}</p>
       </div>
     `;
   });
@@ -97,4 +135,5 @@
 
 </body>
 </html>
+
 
